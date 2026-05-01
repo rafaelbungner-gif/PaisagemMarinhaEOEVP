@@ -33,6 +33,49 @@ npm run typecheck
 npm run build
 ```
 
+## Estrutura de Pastas
+
+```text
+PaisagemMarinhaEOEVP/
+├── .gitignore
+├── README.md
+├── index.html
+├── package.json
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+├── vite.config.ts
+└── src/
+    ├── App.tsx
+    ├── main.tsx
+    ├── styles.css
+    └── lib/
+        ├── calculations.ts
+        └── calculations.test.ts
+```
+
+### Raiz do Projeto
+
+- `.gitignore`: lista arquivos e pastas que não devem ser versionados, como `node_modules`, `dist` e logs locais.
+- `README.md`: documentação principal do projeto, com instalação, execução, modelo matemático, premissas, limitações e estrutura de pastas.
+- `index.html`: página HTML base usada pelo Vite; contém o elemento `#root` onde o React monta a aplicação.
+- `package.json`: declara scripts, dependências de produção e dependências de desenvolvimento.
+- `tsconfig.json`: configuração TypeScript raiz, incluindo a ativação progressiva de `strictNullChecks`.
+- `tsconfig.app.json`: configuração TypeScript da aplicação React e dos testes.
+- `tsconfig.node.json`: configuração TypeScript para arquivos executados em contexto Node, como `vite.config.ts`.
+- `vite.config.ts`: configuração do Vite, incluindo plugin React e porta padrão `8080`.
+
+### Pasta `src/`
+
+- `src/main.tsx`: ponto de entrada da aplicação; localiza o elemento `#root`, valida sua existência e renderiza o React.
+- `src/App.tsx`: componente principal da simulação; concentra interface, presets, comparação A/B, exportação, controles e canvas.
+- `src/styles.css`: estilos globais da aplicação, incluindo layout responsivo, cards, métricas, controles, canvas e regras de impressão.
+
+### Pasta `src/lib/`
+
+- `src/lib/calculations.ts`: núcleo matemático da simulação. Contém tipos, constantes, validação de entradas e a função `calculate()`.
+- `src/lib/calculations.test.ts`: testes unitários da função `calculate()`, cobrindo horizonte, refração, atenuação, limiar de contraste e casos-limite.
+
 ## Modelo Matemático
 
 O modelo usa raio efetivo da Terra para representar refração atmosférica:
